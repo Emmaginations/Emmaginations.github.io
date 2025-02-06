@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>First HTML Page</title>
+	<title>Emmaginations</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -9,17 +9,38 @@
 <body>
 
 	<div class="topnav">
-		<a class="active" href="#home">Home</a>
-		<a href="#code">Code</a>
-		<a href="#designs">Designs</a>
-		<a href="#dance">Dance</a>
+		<a class="active" href="index.html">Home</a>
+		<a href="Pages/code.html">Code</a>
+		<a href="Pages/design.html">Designs</a>
+		<a href="Pages/dance.html">Dance</a>
 	</div>
 	<!-- This web page contains profile information about Emma Zajonc -->
 	<div id="name">
 		<h1>Emma Zajonc</h1>
-		<h2>Software Engineer</h2>
-		<h2>Graphic Designer</h2>
-		<h2>Dance Instructor</h2>	
+		<h2 onclick="update()" id="title">Software Enginneer</h2>
+
+		<script>
+			let counter = 0;
+
+			function update() {
+				let title = document.getElementByID("title");
+				
+				// Each time the subtitle is clicked, the content and the counter update
+				counter++;
+				if (counter > 3) {
+					counter = 0;
+					title.textContent = "Software Engineer";
+				} else if (counter = 1) {
+					title.textContent = "Graphic Designer";
+				} else if (counter = 2) {
+					title.textContent = "Swing Dancer";
+				} else {
+					title.textContent = "Figure Skater";
+				}
+
+				title.classList.toggle("black");
+			}
+		</script>
 	</div>
 	
 
