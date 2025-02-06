@@ -19,31 +19,31 @@
 		<h1>Emma Zajonc</h1>
 		<h2 onclick="update()" id="title">Software Enginneer</h2>
 
-		<script>
-			let counter = 0;
-
-			function update() {
-				let title = document.getElementByID("title");
-				
-				// Each time the subtitle is clicked, the content and the counter update
-				counter++;
-				if (counter > 3) {
-					counter = 0;
-					title.textContent = "Software Engineer";
-				} else if (counter = 1) {
-					title.textContent = "Graphic Designer";
-				} else if (counter = 2) {
-					title.textContent = "Swing Dancer";
-				} else {
-					title.textContent = "Figure Skater";
-				}
-
-				title.classList.toggle("black");
-			}
-		</script>
+		
 	</div>
 	
 
-	
+	<script>
+		let counter = 0;
+
+		function update() {
+			let title = document.getElementByID("title");
+			
+			// Each time the subtitle is clicked, the content and the counter update
+			counter++;
+			if (counter > 3) {
+				counter = 0;
+				title.textContent = "Software Engineer";
+			} else if (counter = 1) {
+				title.textContent = "Graphic Designer";
+			} else if (counter = 2) {
+				title.textContent = "Swing Dancer";
+			} else {
+				title.textContent = "Figure Skater";
+			}
+
+			title.classList.toggle("black");
+		}
+	</script>
 </body>
 </html>
