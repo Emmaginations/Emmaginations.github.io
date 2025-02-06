@@ -27,16 +27,16 @@
 		let counter = 0;
 
 		function update() {
-			let title = document.getElementByID("title");
+			let title = document.getElementById("title");
 			
 			// Each time the subtitle is clicked, the content and the counter update
 			counter++;
 			if (counter > 3) {
 				counter = 0;
 				title.textContent = "Software Engineer";
-			} else if (counter = 1) {
+			} else if (counter == 1) {
 				title.textContent = "Graphic Designer";
-			} else if (counter = 2) {
+			} else if (counter == 2) {
 				title.textContent = "Swing Dancer";
 			} else {
 				title.textContent = "Figure Skater";
