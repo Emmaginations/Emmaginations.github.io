@@ -1,20 +1,53 @@
-#assignment-link {
-    font-size: 50px;
-    color: green;
-    text-align: center;
-} /*This style will make the assignment link easy to find!*/
-
-.heading {
-    color: purple;
-    font-weight: bold;
-} /*This style will be applied to all kinds of headings*/
-
 body {
-    background-color: lightyellow;
+    background-color: #f2f2f2;
 }
 
 @media screen and (min-width: 700px) {
     body {
-      background-color: lightgreen;
+
     }
   }
+
+.topnav {
+    background-color: #89c17b;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #e6b7b5;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #597956;
+    color: white;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 60px;
+    color: #597956;
+
+}
+
+h2 {
+    font-family: sans-serif;
+    font-variant: small-caps;
+    font-size: 18px;
+    color: #e6b7b5;
+}
+
+#name {
+    text-align: center;
+}
