@@ -19,9 +19,9 @@ document.getElementById("submit").addEventListener("click", function(event) {
     document.getElementById("interestError").textContent = "";
     document.getElementById("result").innerHTML = "";
 
-    if (age == "") {
+    if (age == "" || isNaN(ageVal)) {
         valid = false;
-        document.getElementById("ageError").textContent = "Please enter your age";
+        document.getElementById("ageError").textContent = "Please enter a valid age";
     }
     if (name == "") {
         valid = false;
