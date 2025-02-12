@@ -1,20 +1,48 @@
 document.getElementById("submit").addEventListener("click", function(event) {
+    //prevent the page from reloading
     event.preventDefault();
 
     console.log("Form submitted");
 
+
+    // Create objects for the values of each field in the form
     let ageElem = document.getElementById("age");
     let ageVal = parseInt(ageElem.value);
     let name = document.getElementById("fname").value;
     let interest = document.getElementById("interest").value;
 
-    console.log(ageVal, name, interest);
+    let valid = true;
 
-    greeting = createGreeting(name);
+    document.getElementById("fnameError").textContent = "";
+    document.getElementById("ageError").textContent = "";
+    document.getElementById("interestError").textContent = "";
 
-    document.getElementById("result").innerHTML = `
-        <p>${greeting}</p>
-        <p>${name} is ${ageVal} years old. The age difference between ${name} and Emma is: ${calculateAgeDifference(ageVal)} years.</p>`;
+    if (ageVal == "") {
+        valid = false;
+        document.getElementById("ageError").textContent = "Please enter your age";
+    }
+    if (name == "") {
+        valid = false;
+        document.getElementById("fnameError").textContent = "Please enter your name";
+    }
+    if (interest == "") {
+        valid = false;
+        document.getElementById("interestError").textContent = "Please enter your reason to be interested in this website";
+    }
+    
+    if (valid == true) {
+        console.log(ageVal, name, interest);
+
+        greeting = createGreeting(name);
+
+        //set the innerHTML of the results section
+        document.getElementById("result").innerHTML = `
+            <p>${greeting}</p>
+            <p>${name} is ${ageVal} years old. 
+            The age difference between ${name} and Emma is: ${calculateAgeDifference(ageVal)} years.</p>`;
+    } else {
+        console.log("Invalid Input")
+    }
 });
 
 
