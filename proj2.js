@@ -6,18 +6,20 @@ document.getElementById("submit").addEventListener("click", function(event) {
 
 
     // Create objects for the values of each field in the form
-    let ageElem = document.getElementById("age");
-    let ageVal = parseInt(ageElem.value);
+    let age = document.getElementById("age").value;
+    let ageVal = parseInt(age);
     let name = document.getElementById("fname").value;
     let interest = document.getElementById("interest").value;
 
     let valid = true;
 
+    // Clear errors and result
     document.getElementById("fnameError").textContent = "";
     document.getElementById("ageError").textContent = "";
     document.getElementById("interestError").textContent = "";
+    document.getElementById("result").innerHTML = "";
 
-    if (ageVal == "") {
+    if (age == "") {
         valid = false;
         document.getElementById("ageError").textContent = "Please enter your age";
     }
