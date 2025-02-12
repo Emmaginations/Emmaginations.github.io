@@ -5,7 +5,7 @@ document.getElementById("submit").addEventListener("click", function(event) {
 
     let ageElem = document.getElementById("age");
     let ageVal = parseInt(ageElem.value);
-    let name = document.getElementById("name").value;
+    let name = document.getElementById("fname").value;
     let interest = document.getElementById("interest").value;
 
     console.log(ageVal, name, interest);
