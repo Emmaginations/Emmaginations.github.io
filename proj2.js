@@ -9,10 +9,10 @@ document.getElementById("submit").addEventListener("click", function(event) {
 function calculateAgeDifference(age) {
     if (age > 21) {
         console.log("Computation complete.");
-        return (parseInt(age.value) - 21);
+        return (age.value - 21);
     } else if (age < 21) {
         console.log("Computation complete.");
-        return (21 - parseInt(age.value));
+        return (21 - age.value);
     }
 }
 
