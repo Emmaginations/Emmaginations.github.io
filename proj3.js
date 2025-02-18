@@ -4,7 +4,7 @@ let placements = [1, 1, 5, 1, 2, 2, 13];
 let total = 0;
 let wins = 0;
 for (let i = 0; i < placements.length; i++) {
-    console.log(`at my #${i} competition I placed ${placements[i]}, `);
+    console.log(`at my #${i} competition I placed${placements[i] + 1}, `);
     total += placements[i];
     if (placements[i] == 1) {
         wins++;
