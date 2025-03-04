@@ -23,7 +23,7 @@ function createOverlay() {
     overlayImage.onclick = function() {
         main_c.removeChild(overlayImage);
 
-        let art = document.createElement("img");
+        art = document.createElement("img");
         art.src = "../img3.jpg";
         art.alt = "A digital drawing of a woman";
         art.onclick = createOverlay;
