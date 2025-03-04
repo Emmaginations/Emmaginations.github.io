@@ -46,7 +46,7 @@ h2 {
     font-variant: small-caps;
     font-size: 18px;
     color: #e6b7b5;
-    display: flex;
+    display: block;
     margin: 0 auto;
 }
 
