@@ -1,5 +1,5 @@
 let art = document.createElement("img");
-art.src = "img3.jpg";
+art.src = "../img3.jpg";
 art.alt = "A digital drawing of a woman";
 art.onclick = createOverlay;
 
@@ -20,7 +20,7 @@ function createOverlay() {
 	document.body.appendChild(overlay);
 
     let overlayImage = document.createElement("img");
-    overlayImage.src = "img5.jpg";
+    overlayImage.src = "../img5.jpg";
     figureBox.appendChild(overlayImage);
 
     let closeBox = document.createElement("div");
