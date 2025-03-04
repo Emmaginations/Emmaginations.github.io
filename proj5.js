@@ -12,19 +12,19 @@ main_c.appendChild(header);
 header.appendChild(description);
 
 function createOverlay() {
-	let overlay = document.createElement("div");
-	overlay.id = "artOverlay";
-
-	let figureBox = document.createElement("figure");
-	overlay.appendChild(figureBox);
-	document.body.appendChild(overlay);
-
     let overlayImage = document.createElement("img");
     overlayImage.src = "../img5.jpg";
-    figureBox.appendChild(overlayImage);
+    overlayImage.id = "replacement";
+    main_c.removeChild(art);
+    main_c.appendChild(overlayImage);
 
     overlayImage.onclick = function() {
         document.body.removeChild(overlay);
+
+        let art = document.createElement("img");
+        art.src = "../img3.jpg";
+        art.alt = "A digital drawing of a woman";
+        art.onclick = createOverlay;
     }
 }
 		
