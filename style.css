@@ -73,8 +73,7 @@ h2 {
 }
 
 /*Assignment 5: Design elements for images on the page */
-img {
-    max-width: 100%; 
+img { 
     height: auto; 
     display: block;  
     border-radius: 8px;
