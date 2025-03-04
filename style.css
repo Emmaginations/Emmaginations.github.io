@@ -59,3 +59,33 @@ h2 {
 .error {
     color: red;
 }
+
+
+/* Assignment 5: This styles the overlay to be slightly transparent and cover the whole screen */
+#artOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+/*Assignment 5: Design elements for images on the page */
+img {
+    max-width: 100%; 
+    height: auto; 
+    display: block;  
+    border-radius: 8px;
+    border-color: #597956;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+/* Assignment 5: More design elements for images */
+img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
