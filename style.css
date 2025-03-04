@@ -84,7 +84,9 @@ img {
     border-radius: 8px;
     border-color: #597956;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20 auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Assignment 5: More design elements for images */
