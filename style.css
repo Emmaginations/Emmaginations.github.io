@@ -95,3 +95,7 @@ img:hover {
     transition: transform 0.3s ease-in-out;
 }
 
+/*Style for overlay*/
+#replacement {
+    opacity: 50%;
+}
