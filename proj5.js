@@ -23,14 +23,8 @@ function createOverlay() {
     overlayImage.src = "../img5.jpg";
     figureBox.appendChild(overlayImage);
 
-    let closeBox = document.createElement("div");
-    closeBox.id = "artOverlayClose";
-    closeBox.innerHTML = "&times;";
-
-    closeBox.onclick = function() {
+    overlayImage.onclick = function() {
         document.body.removeChild(overlay);
     }
-
-    overlay.appendChild(closeBox);
 }
 		
