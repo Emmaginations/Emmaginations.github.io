@@ -1,5 +1,4 @@
 document.getElementById("registrationForm").addEventListener("submit", function(event) { 
-    event.preventDefault();
     
     const form = document.forms[0];
 
@@ -9,6 +8,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         if (!/^[A-Za-z ]+$/.test(fullName)) throw "Invalid full name.";
         form.querySelector(`[data-error="fullName"]`).textContent = "";
     } catch (error) {
+        event.preventDefault();
         console.error(error); // Log error to console
         form.querySelector(`[data-error="fullName"]`).textContent = error;    
     }
@@ -20,6 +20,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         if (!/^[A-Za-z][A-Za-z0-9]{6,15}$/.test(username)) throw "Invalid username.";
         form.querySelector(`[data-error="username"]`).textContent = "";
         } catch (error) {
+        event.preventDefault();
         console.error(error); //Log error
         form.querySelector(`[data-error="username"]`).textContent = error;    
     }
@@ -30,6 +31,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         if (email.validity.typeMismatch) throw "Invalid email.";
         form.querySelector(`[data-error="email"]`).textContent = "";        
     } catch (error) {
+        event.preventDefault();
         console.error(error);
         email.form.querySelector(`[data-error="fullName"]`).textContent = error;
 
@@ -41,6 +43,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/.test(password)) throw "Invalid password.";
         form.querySelector(`[data-error="password"]`).textContent = "";         
     } catch (error) {
+        event.preventDefault();
         console.error(error);
         form.querySelector(`[data-error="password"]`).textContent = error;        
     }
@@ -51,6 +54,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         form.querySelector(`[data-error="confirm"]`).textContent = "";
 
     } catch (error) {
+        event.preventDefault();
         console.error(error);
         form.querySelector(`[data-error="confirm"]`).textContent = error;
 
@@ -62,6 +66,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         if (phoneNumber.validity.typeMismatch || !/^\d{10}$/.test(phoneNumber.value)) throw "Invalid phone number.";
         form.querySelector(`[data-error="confirmPassword"]`).textContent = "";
     } catch (error) {
+        event.preventDefault();
         console.error(error);
         form.querySelector(`[data-error="confirmPassword"]`).textContent = error;
     }
@@ -79,17 +84,17 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         form.querySelector(`[data-error="dob"]`).textContent = "";
 
     } catch (error) {
+        event.preventDefault();
         console.warn(error);
         form.querySelector(`[data-error="dob"]`).textContent = error;
     }
-    form.dob.reportValidity();  // Manually trigger the validity check
 
     try {
         if (!form.agreeToTerms.checked) throw "You must agree to the terms and conditions.";
         form.querySelector(`[data-error="agreeToTerms"]`).textContent = "";
     } catch (error) {
+        event.preventDefault();
         console.error(error);
         form.querySelector(`[data-error="agreeToTerms"]`).textContent = error;
     }
-    form.agreeToTerms.reportValidity();  // Manually trigger the validity check
 });
