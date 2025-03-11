@@ -14,48 +14,42 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     try {
         let username = form.username.value;
         if (!/^[A-Za-z][A-Za-z0-9]{6,15}$/.test(username)) throw "Invalid username.";
-        form.username.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.username.parentNode.nextSibling.nextSibling.textContent = error;
+        form.username.setCustomValidity(error);
     }
 
     try {
         let email = form.email;
         if (email.validity.typeMismatch) throw "Invalid email.";
-        form.email.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.email.parentNode.nextSibling.nextSibling.nextSitextContent = error;
+        email.setCustomValidity(error);
     }
 
     try {
         let password = form.password.value;
         if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/.test(password)) throw "Invalid password.";
-        form.password.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.password.parentNode.nextSibling.nextSibling.textContent = error;
+        form.password.setCustomValidity(error);
     }
 
     try {
         let confirmPassword = form.confirmPassword.value;
         if (confirmPassword !== form.password.value) throw "The passwords do not match.";
-        form.confirmPassword.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.confirmPassword.parentNode.nextSibling.nextSibling.textContent = error;
-
+        form.confirmPassword.setCustomValidity(error);
     }
 
     try {
         let phoneNumber = form.phoneNumber;
         if (phoneNumber.validity.typeMismatch) throw "Invalid phone number.";
-        form.phoneNumber.parentNode.nextSibling.nextSibling.textContent = "";
 
     } catch (error) {
         console.error(error);
-        form.phoneNumber.parentNode.nextSibling.nextSibling.textContent = error;
+        phoneNumber.setCustomValidity(error);
     }
 
     try {
@@ -67,20 +61,18 @@ document.getElementById("registrationForm").addEventListener("submit", function(
             age--;
 
         if (age < 18) throw "You must be at least 18 years old.";
-        form.dob.parentNode.nextSibling.nextSibling.textContent = "";
 
     } catch (error) {
         console.warn(error);
-        form.dob.parentNode.nextSibling.nextSibling.textContent = error;
+        form.dob.setCustomValidity(error);
 
     }
 
     try {
         if (!form.agreeToTerms.checked) throw "You must agree to the terms and conditions.";
-        form.agreeToTerms.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.agreeToTerms.parentNode.nextSibling.nextSibling.textContent = "";
+        form.agreeToTerms.setCustomValidity(error);
     }
 
 });
