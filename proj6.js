@@ -6,16 +6,15 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     try {
         let fullName = form.fullName.value;
         if (!/^[A-Za-z ]+$/.test(fullName)) throw "Invalid full name.";
-        form.fullName.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.fullName.parentNode.nextSibling.nextSibling.nextSibling.textContent = error;
+        form.fullName.setCustomValidity(error);
     }
 
     try {
         let username = form.username.value;
         if (!/^[A-Za-z][A-Za-z0-9]{6,15}$/.test(username)) throw "Invalid username.";
-        form.username.parentNode.nextSibling.nextSibling..nextSibling.textContent = "";
+        form.username.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
         form.username.parentNode.nextSibling.nextSibling.textContent = error;
