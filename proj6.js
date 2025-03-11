@@ -7,68 +7,64 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         let fullName = form.fullName.value;
         // Check if the entered value follows the specifications, throw error if not
         if (!/^[A-Za-z ]+$/.test(fullName)) throw "Invalid full name.";
-        form.fullName.setCustomValidity(""); // Reset error if there are no problems
+        form.querySelector(`[data-error="fullName"]`).textContent = "";
     } catch (error) {
         console.error(error); // Log error to console
-        form.fullName.setCustomValidity(error); // Display error to user
+        form.querySelector(`[data-error="fullName"]`).textContent = error;    
     }
 
-    // Trigger validation updates manually after handling each field
-    form.fullName.reportValidity();  // Manually trigger the validity check
 
     try {
         let username = form.username.value;
         // Use a regular expression to determine if username is valid. First character cannot be number, length between 6 and 15
         if (!/^[A-Za-z][A-Za-z0-9]{6,15}$/.test(username)) throw "Invalid username.";
-        form.username.setCustomValidity("");
-    } catch (error) {
+        form.querySelector(`[data-error="username]`).textContent = "";
+        } catch (error) {
         console.error(error); //Log error
-        form.username.setCustomValidity(error); //Display error
+        form.querySelector(`[data-error="username"]`).textContent = error;    
     }
-    form.username.reportValidity();  // Manually trigger the validity check
 
     try {
         let email = form.email;
         // The email type allows direct checking of whether or not it is valid
         if (email.validity.typeMismatch) throw "Invalid email.";
-        email.setCustomValidity("");
+        form.querySelector(`[data-error="email"]`).textContent = "";        
     } catch (error) {
         console.error(error);
-        email.setCustomValidity(error);
+        email.form.querySelector(`[data-error="fullName"]`).textContent = error;
+
     }
-    form.email.reportValidity(); // Manually trigger the validity check
 
     try {
         let password = form.password.value;
         // This regular expression uses look-aheads to determine if the password fills every requirement
         if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/.test(password)) throw "Invalid password.";
-        form.password.setCustomValidity("");   
+        form.querySelector(`[data-error="password"]`).textContent = "";         
     } catch (error) {
         console.error(error);
-        form.password.setCustomValidity(error);
+        form.querySelector(`[data-error="password"]`).textContent = error;        
     }
-    form.password.reportValidity();  // Manually trigger the validity check
 
     try {
         let confirmPassword = form.confirmPassword.value;
         if (confirmPassword !== form.password.value) throw "The passwords do not match.";
-        form.confirmPassword.setCustomValidity("");
+        form.querySelector(`[data-error="confirmPassword"]`).textContent = "";
+
     } catch (error) {
         console.error(error);
-        form.confirmPassword.setCustomValidity(error);
+        form.querySelector(`[data-error="confirmPassword"]`).textContent = error;
+
     }
-    form.confirmPassword.reportValidity();  // Manually trigger the validity check
 
     try {
         let phoneNumber = form.phoneNumber;
         // This type also allows for simple validity checking
         if (phoneNumber.validity.typeMismatch) throw "Invalid phone number.";
-        phoneNumber.setCustomValidity("");
+        form.querySelector(`[data-error="confirmPassword"]`).textContent = "";
     } catch (error) {
         console.error(error);
-        phoneNumber.setCustomValidity(error);
+        form.querySelector(`[data-error="confirmPassword"]`).textContent = error;
     }
-    form.phoneNumber.reportValidity();  // Manually trigger the validity check
 
     try {
         let dob = new Date(form.dob.value);
@@ -80,19 +76,20 @@ document.getElementById("registrationForm").addEventListener("submit", function(
             age--;
 
         if (age < 18) throw "You must be at least 18 years old.";
-        form.dob.setCustomValidity("");
+        form.querySelector(`[data-error="dob"]`).textContent = "";
+
     } catch (error) {
         console.warn(error);
-        form.dob.setCustomValidity(error);
+        form.querySelector(`[data-error="dob"]`).textContent = error;
     }
     form.dob.reportValidity();  // Manually trigger the validity check
 
     try {
         if (!form.agreeToTerms.checked) throw "You must agree to the terms and conditions.";
-        form.agreeToTerms.setCustomValidity("");
+        form.querySelector(`[data-error="agreeToTerms"]`).textContent = "";
     } catch (error) {
         console.error(error);
-        form.agreeToTerms.setCustomValidity(error);
+        form.querySelector(`[data-error="agreeToTerms"]`).textContent = error;
     }
     form.agreeToTerms.reportValidity();  // Manually trigger the validity check
 });
