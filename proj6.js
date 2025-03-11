@@ -18,7 +18,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         let username = form.username.value;
         // Use a regular expression to determine if username is valid. First character cannot be number, length between 6 and 15
         if (!/^[A-Za-z][A-Za-z0-9]{6,15}$/.test(username)) throw "Invalid username.";
-        form.querySelector(`[data-error="username]`).textContent = "";
+        form.querySelector(`[data-error="username"]`).textContent = "";
         } catch (error) {
         console.error(error); //Log error
         form.querySelector(`[data-error="username"]`).textContent = error;    
