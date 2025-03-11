@@ -52,14 +52,14 @@ document.getElementById("registrationForm").addEventListener("submit", function(
 
     } catch (error) {
         console.error(error);
-        form.querySelector(`[data-error="confirm"]`).textContent = "not matching";
+        form.querySelector(`[data-error="confirm"]`).textContent = error;
 
     }
 
     try {
         let phoneNumber = form.phoneNumber;
         // This type also allows for simple validity checking
-        if (phoneNumber.validity.typeMismatch) throw "Invalid phone number.";
+        if (phoneNumber.validity.typeMismatch || !/^\d{10}$/.test(phoneNumber.value)) throw "Invalid phone number.";
         form.querySelector(`[data-error="confirmPassword"]`).textContent = "";
     } catch (error) {
         console.error(error);
