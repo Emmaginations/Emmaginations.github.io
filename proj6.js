@@ -36,7 +36,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         console.error(error);
         email.setCustomValidity(error);
     }
-    email.reportValidity(); // Manually trigger the validity check
+    form.email.reportValidity(); // Manually trigger the validity check
 
     try {
         let password = form.password.value;
@@ -68,7 +68,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         console.error(error);
         phoneNumber.setCustomValidity(error);
     }
-    phoneNumber.reportValidity();  // Manually trigger the validity check
+    form.phoneNumber.reportValidity();  // Manually trigger the validity check
 
     try {
         let dob = new Date(form.dob.value);
