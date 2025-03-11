@@ -100,3 +100,7 @@ img:hover {
     opacity: 50%;
     transform: rotate(180deg);
 }
+
+.error {
+    color: red;
+}

@@ -1,4 +1,6 @@
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
     const form = document.forms[0];
 
     try {
