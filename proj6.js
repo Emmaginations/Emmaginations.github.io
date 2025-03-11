@@ -48,11 +48,11 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     try {
         let confirmPassword = form.confirmPassword.value;
         if (confirmPassword !== form.password.value) throw "The passwords do not match.";
-        form.querySelector(`[data-error="confirmPassword"]`).textContent = "";
+        form.querySelector(`[data-error="confirm"]`).textContent = "";
 
     } catch (error) {
         console.error(error);
-        form.querySelector(`[data-error="confirmPassword"]`).textContent = "not matching";
+        form.querySelector(`[data-error="confirm"]`).textContent = "not matching";
 
     }
 
