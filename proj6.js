@@ -64,11 +64,11 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         let phoneNumber = form.phoneNumber;
         // This type also allows for simple validity checking
         if (phoneNumber.validity.typeMismatch || !/^\d{10}$/.test(phoneNumber.value)) throw "Invalid phone number.";
-        form.querySelector(`[data-error="confirmPassword"]`).textContent = "";
+        form.querySelector(`[data-error="phoneNumber"]`).textContent = "";
     } catch (error) {
         event.preventDefault();
         console.error(error);
-        form.querySelector(`[data-error="confirmPassword"]`).textContent = error;
+        form.querySelector(`[data-error="phoneNumber"]`).textContent = error;
     }
 
     try {
