@@ -9,13 +9,13 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         form.fullName.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.fullName.parentNode.nextSibling.nextSibling.textContent = error;
+        form.fullName.parentNode.nextSibling.nextSibling.nextSibling.textContent = error;
     }
 
     try {
         let username = form.username.value;
         if (!/^[A-Za-z][A-Za-z0-9]{6,15}$/.test(username)) throw "Invalid username.";
-        form.username.parentNode.nextSibling.nextSibling.textContent = "";
+        form.username.parentNode.nextSibling.nextSibling..nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
         form.username.parentNode.nextSibling.nextSibling.textContent = error;
@@ -27,7 +27,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         form.email.parentNode.nextSibling.nextSibling.textContent = "";
     } catch (error) {
         console.error(error);
-        form.email.parentNode.nextSibling.nextSibling.textContent = error;
+        form.email.parentNode.nextSibling.nextSibling.nextSitextContent = error;
     }
 
     try {
