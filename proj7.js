@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let languages = [];
 
 document.getElementById("add").onclick = function () {
+    event.preventDefault();
     let input = document.getElementById("language");
     let value = input.value;
 
