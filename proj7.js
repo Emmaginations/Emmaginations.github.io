@@ -6,6 +6,8 @@ function addLanguage() {
 
     if (!value) return;
 
+    console.log(value);
+
     languages.push(value);
     input.value = "";
     displayLanguages();
@@ -22,6 +24,8 @@ function displayLanguages() {
     list.innerHTML ="";
 
     languages.forEach(language => {
+        console.log(language);
+
         const block = document.createElement("div");
         block.className = "language";
         const text = document.createElement("span");
