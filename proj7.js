@@ -1,4 +1,5 @@
-let languages = [];
+document.addEventListener("DOMContentLoaded", function () {
+    let languages = [];
 
 document.getElementById("add").onclick = function () {
     let input = document.getElementById("language");
@@ -59,3 +60,5 @@ document.getElementById("getFile").onchange = function() {
         codeDoc.innerHTML = reader.result;
     }
 }
+});
+
