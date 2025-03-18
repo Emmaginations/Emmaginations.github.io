@@ -1,4 +1,4 @@
-const languages = [];
+let languages = [];
 
 function addLanguage() {
     let input = document.getElementById("language");
