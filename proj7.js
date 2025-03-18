@@ -1,6 +1,6 @@
 let languages = [];
 
-function addLanguage() {
+document.getElementById("add").onclick = function () {
     let input = document.getElementById("language");
     let value = input.value;
 
