@@ -4,6 +4,8 @@ function addLanguage() {
     let input = document.getElementById("language");
     let value = input.value;
 
+    if (!value) return;
+
     languages.push(value);
     input.value = "";
     displayLanguages();
@@ -27,9 +29,9 @@ function displayLanguages() {
         const remove = document.createElement("button");
         remove.textContent = "Remove";
         remove.onclick = () => removeLanguage(language);
-        list.appendChild(block);
         block.appendChild(text);
         block.appendChild(remove);
+        list.appendChild(block);
     })
 }
 
