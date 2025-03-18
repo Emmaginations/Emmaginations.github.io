@@ -50,6 +50,6 @@ document.getElementById("getFile").onchange = function() {
     reader.readAsText(userFile);
     let codeDoc = document.getElementById("codeFile");
     reader.onload = function() {
-        codeDoc.innerHTMl = reader.result;
+        codeDoc.innerHTML = reader.result;
     }
 }
