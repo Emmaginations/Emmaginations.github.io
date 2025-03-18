@@ -48,7 +48,7 @@ document.getElementById("getFile").onchange = function() {
     let userFile = this.files[0];
     let reader = new FileReader();
     reader.readAsText(userFile);
-    let codeDoc = document.getElementById("codeDoc");
+    let codeDoc = document.getElementById("codeFile");
     reader.onload = function() {
         codeDoc.innerHTMl = reader.result;
     }
