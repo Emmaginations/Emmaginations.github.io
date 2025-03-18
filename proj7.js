@@ -1,4 +1,4 @@
-let languages = [];
+const languages = [];
 
 function addLanguage() {
     let input = document.getElementById("language");
@@ -31,4 +31,25 @@ function displayLanguages() {
         block.appendChild(text);
         block.appendChild(remove);
     })
+}
+
+function check() {
+    const camel = document.getElementById("camel");
+    let regex = /^[a-z]+([A-Z][a-z0-9]*)+$/
+    const checker = document.getElementById("checker");
+    if (regex.test(camel.value)) {
+        checker.textContent = "Your camel case is correct!";
+    } else {
+        checker.textContent = "Your camel case is incorrect";
+    }
+}
+
+document.getElementById("getFile").onchange = function() {
+    let userFile = this.files[0];
+    let reader = new FileReader();
+    reader.readAsText(userFile);
+    let codeDoc = document.getElementById("codeDoc");
+    reader.onload = function() {
+        codeDoc.innerHTMl = reader.result;
+    }
 }
