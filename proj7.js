@@ -41,7 +41,7 @@ function displayLanguages() {
     })
 }
 
-function check() {
+document.getElementById("camel").oninput = function () {
     const camel = document.getElementById("camel");
     let regex = /^[a-z]+([A-Z][a-z0-9]*)+$/
     const checker = document.getElementById("checker");
