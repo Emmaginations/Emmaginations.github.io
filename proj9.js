@@ -17,9 +17,12 @@ window.addEventListener('DOMContentLoaded', () => {
             document.body.style.color = fieldValue;
         } else if (fieldName === "txtsize") {
             document.body.style.fontSize = `${fieldValue}px`;
+            document.body.style.setProperty("font-size", `${fieldValue}px`, "important");
         }
-        
-    document.cookie = items;
+    
+    let expire= new Date();
+    expire.setHours(expire.getHours() + 1);
+    document.cookie = `${items}; expires=${expire}`;
     }
 
 
