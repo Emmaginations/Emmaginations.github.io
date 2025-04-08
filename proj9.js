@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else if (fieldName === "txtcolor") {
             document.body.style.color = fieldValue;
         } else if (fieldName === "txtsize") {
-            document.body.style.fontSize = fieldValue;
+            document.body.style.fontSize = `${fieldValue}px`;
         }
         
     document.cookie = items;
