@@ -10,7 +10,7 @@ let pieces = [];
 let timer;
 let seconds = 0;
 
-reset.addEventListener('click', reset());
+reset.addEventListener('click', reset);
 
 function createPieces() {
     pieces = [];
