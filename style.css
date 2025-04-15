@@ -100,3 +100,27 @@ img:hover {
     opacity: 50%;
     transform: rotate(180deg);
 }
+
+#timer {
+    margin-bottom: 10px;
+}
+
+#frame {
+    display: grid;
+    grid-template-columns: repeat(3, 100 px);
+    grid-template-rows: repeat(3, 100px);
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.piece {
+    width: 100px;
+    height: 100px;
+    background-image: "img6.jpg";
+    background-size: 300px 300px;
+    border: 2px solid black;
+}
+
+.highlight {
+    border-color: yellow;
+}
