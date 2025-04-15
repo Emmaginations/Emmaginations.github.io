@@ -119,6 +119,7 @@ img:hover {
     background-image: url("img6.jpg");
     background-size: 300px 300px;
     border: 2px solid black;
+    transition: transform, 0.3s ease-in-out;
 }
 
 .highlight {
