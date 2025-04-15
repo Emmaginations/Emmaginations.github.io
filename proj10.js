@@ -1,6 +1,7 @@
 const frame = document.getElementById("frame");
 const timerLine = document.getElementById("timer");
 const score = document.getElementById("score");
+const resetButton = document.getElementById("reset");
 
 const gridCount = 3; // number of rows/columns in the square
 const totalPieces = gridCount * gridCount;
@@ -9,13 +10,15 @@ let pieces = [];
 let timer;
 let seconds = 0;
 
+reset.addEventListener('click', reset());
+
 function createPieces() {
     pieces = [];
-    for (let i =0; i < totalPieces; i++) {
-        const p = document.createElement("div");
-        p.classList.add("piece");
-        p.setAttribute("data-index", i);
-        p.draggable = true;
+    for (let i =0; i < totalPieces; i++) { // Create an element for each piece needed
+        const p = document.createElement("div"); // make div
+        p.classList.add("piece"); // add piece class
+        p.setAttribute("data-index", i); // set the "correct position" index, that will be accessed through dataTransfer later
+        p.draggable = true; // make draggable
 
         const row = Math.floor(i/gridCount);
         const col = i % gridCount;
