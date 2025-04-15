@@ -110,7 +110,6 @@ img:hover {
     grid-template-columns: repeat(3, 100 px);
     grid-template-rows: repeat(3, 100px);
     gap: 2px;
-    justify-content: center;
     margin-bottom: 10px;
 }
 
