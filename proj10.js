@@ -30,13 +30,10 @@ function createPieces() {
     }
 }
 
-function shuffle(pieces) {
-    for (let i = 0; i < pieces.length - 1; i++) {
+function shuffle() {
+    for (let i = pieces.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        let a = pieces[i];
-        let b = pieces[j];
-        pieces[i] = b;
-        pieces[j] = a;
+        [pieces[i], pieces[j]] = [pieces[j], pieces[i]];
     }
 }
 
