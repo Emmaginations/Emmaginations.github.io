@@ -64,35 +64,24 @@ function dragLeave(e) {
 
 function drop(e) {
     e.preventDefault();
-
     e.target.classList.remove("highlight");
-    if (e.target.classList.contains("done")) return;
-    
-    const io = e.dataTransfer.getData("text");
-    const it = e.target.dataset.index;
 
-    if (it === io) {
-        const oPiece = pieces.find(p =>p.dataset.index === io);
-        const correctPosition = pieces[it];
+    const fromIndex = e.dataTransfer.getData("text");
+    const toIndex = e.target.dataset.index;
 
-        const index = pieces.indexOf(oPiece);
-        pieces[index] = oPiece;
+    const fromPiece = pieces.find(p => p.dataset.index === fromIndex);
+    const toPiece = pieces.find(p => p.dataset.index === toIndex);
 
-        oPiece.classList.add("done");
-        oPiece.classList.draggable = false;
-        render();
-        checkDone();
-    } else {
-        const oPiece = pieces.find(p => p.dataset.index === io);
-        const tPiece = pieces.find(p => p.dataset.index === it);
-        const oIndex = pieces.indexOf(oPiece);
-        const tIndex = pieces.indexOf(tPiece);
-        let a = pieces[oIndex];
-        let b = pieces[tIndex];
-        pieces[oIndex] = b;
-        pieces[tIndex] = a;
-        render();
-    }
+    // Don't allow swap if either piece is locked
+    if (!fromPiece.draggable || !toPiece.draggable) return;
+
+    // Swap the two pieces
+    const a = pieces.indexOf(fromPiece);
+    const b = pieces.indexOf(toPiece);
+    [pieces[a], pieces[b]] = [pieces[b], pieces[a]];
+
+    render();
+    checkDone();
 }
 
 function startTimer() {
@@ -107,9 +96,16 @@ function startTimer() {
 
 function checkDone() {
     let allDone = true;
-    for (i = 0; i < pieces.length; i++) {
-        if (!pieces[i].classList.contains("done"))
+
+    for (let i = 0; i < pieces.length; i++) {
+        const current = pieces[i];
+        const correctIndex = current.dataset.index;
+
+        if (parseInt(correctIndex) !== i) {
             allDone = false;
+        } else {
+            current.draggable = false; // lock it
+        }
     }
 
     if (allDone) {
