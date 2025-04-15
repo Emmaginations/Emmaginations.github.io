@@ -2,7 +2,7 @@ const frame = document.getElementById("frame");
 const timerLine = document.getElementById("timer");
 const score = document.getElementById("score");
 
-const gridCount = 5; // number of rows/columns in the square
+const gridCount = 3; // number of rows/columns in the square
 const totalPieces = gridCount * gridCount;
 
 let pieces = [];
