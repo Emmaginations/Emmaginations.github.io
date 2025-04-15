@@ -124,3 +124,7 @@ img:hover {
 .highlight {
     border-color: yellow;
 }
+
+.piece.done {
+    opacity:0.5;
+}

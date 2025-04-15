@@ -72,10 +72,10 @@ function drop(e) {
     const fromPiece = pieces.find(p => p.dataset.index === fromIndex);
     const toPiece = pieces.find(p => p.dataset.index === toIndex);
 
-    // Don't allow swap if either piece is locked
+    // Don't allow swap if either piece is locked (draggable === false)
     if (!fromPiece.draggable || !toPiece.draggable) return;
 
-    // Swap the two pieces
+    // Swap the pieces in the array
     const a = pieces.indexOf(fromPiece);
     const b = pieces.indexOf(toPiece);
     [pieces[a], pieces[b]] = [pieces[b], pieces[a]];
@@ -94,19 +94,21 @@ function startTimer() {
     }, 1000);
 }
 
+
 function checkDone() {
     let allDone = true;
 
-    for (let i = 0; i < pieces.length; i++) {
-        const current = pieces[i];
-        const correctIndex = current.dataset.index;
-
-        if (parseInt(correctIndex) !== i) {
-            allDone = false;
+    pieces.forEach((piece, i) => {
+        // Check if each piece is in its correct spot
+        if (parseInt(piece.dataset.index) === i) {
+            if (piece.draggable) {
+                piece.classList.add("done");  // Visually indicate it's locked
+                piece.draggable = false;      // Prevent future movement
+            }
         } else {
-            current.draggable = false; // lock it
+            allDone = false;
         }
-    }
+    });
 
     if (allDone) {
         clearInterval(timer);
