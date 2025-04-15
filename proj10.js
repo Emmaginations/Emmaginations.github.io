@@ -13,7 +13,7 @@ function createPieces() {
     for (let i =0; i < totalPieces; i++) {
         const p = document.createElement("div");
         p.classList.add("piece");
-        p.setAttribute("data-index", 0);
+        p.setAttribute("data-index", i);
         p.draggable = true;
 
         const row = Math.floor(i/gridCount);
@@ -31,12 +31,12 @@ function createPieces() {
 }
 
 function shuffle(pieces) {
-    for (let i = 0; i < arrayHasItems.length - 1; i++) {
+    for (let i = 0; i < pieces.length - 1; i++) {
         const j = Math.floor(Math.random() * (i + 1));
         let a = pieces[i];
         let b = pieces[j];
-        array[i] = b;
-        array[j] = a;
+        pieces[i] = b;
+        pieces[j] = a;
     }
 }
 
@@ -67,7 +67,7 @@ function dragLeave(e) {
 function drop(e) {
     e.preventDefault();
 
-    e.target.classlist.remove("highlight");
+    e.target.classList.remove("highlight");
     if (e.target.classList.contains("done")) return;
     
     const io = e.dataTransfer.getData("text");
@@ -96,3 +96,7 @@ function drop(e) {
         render();
     }
 }
+
+createPieces();
+shuffle(pieces);
+render();
