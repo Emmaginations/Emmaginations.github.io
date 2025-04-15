@@ -1,5 +1,6 @@
 const frame = document.getElementById("frame");
 const timerLine = document.getElementById("timer");
+const score = document.getElementById("score");
 
 const gridCount = 3;
 const totalPieces = gridCount * gridCount;
@@ -80,7 +81,7 @@ function drop(e) {
         oPiece.classList.add("done");
         oPiece.classList.draggable = false;
         render();
-        //checkSolved();
+        checkDone();
     } else {
         const oPiece = pieces.find(p => p.dataset.index === io);
         const tPiece = pieces.find(p => p.dataset.index === it);
@@ -94,6 +95,36 @@ function drop(e) {
     }
 }
 
-createPieces();
-shuffle(pieces);
-render();
+function startTimer() {
+    clearInterval(timer);
+    seconds = 0;
+    timerLine.textContent = `Time: 0s`;
+    timer = setInterval(() => {
+        seconds++;
+        timerLine.textContent = `Time: ${seconds}s`;
+    }, 1000);
+}
+
+function checkDone() {
+    let allDone = true;
+    for (i = 0; i < pieces.length; i++) {
+        if (!pieces[i].classList.contains("done"))
+            allDone = false;
+    }
+
+    if (allDone) {
+        clearInterval(timer);
+        score.textContent = `Artwork reassembled in ${seconds} seconds!`;
+    }
+}
+
+function reset() {
+    score.textContent = "";
+    createPieces();
+    shuffle();
+
+    render();
+    startTimer();
+}
+
+reset();
