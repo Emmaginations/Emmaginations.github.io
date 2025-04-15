@@ -2,7 +2,7 @@ const frame = document.getElementById("frame");
 const timerLine = document.getElementById("timer");
 const score = document.getElementById("score");
 
-const gridCount = 3;
+const gridCount = 5; // number of rows/columns in the square
 const totalPieces = gridCount * gridCount;
 
 let pieces = [];
@@ -63,19 +63,19 @@ function dragLeave(e) {
 }
 
 function drop(e) {
-    e.preventDefault();
-    e.target.classList.remove("highlight");
+    e.preventDefault(); //drop can do other things with images by default
+    e.target.classList.remove("highlight"); //No longer option
 
-    const fromIndex = e.dataTransfer.getData("text");
+    const fromIndex = e.dataTransfer.getData("text"); //The correct index
     const toIndex = e.target.dataset.index;
 
     const fromPiece = pieces.find(p => p.dataset.index === fromIndex);
     const toPiece = pieces.find(p => p.dataset.index === toIndex);
 
-    // Don't allow swap if either piece is locked (draggable === false)
+    // No moving if either piece is done
     if (!fromPiece.draggable || !toPiece.draggable) return;
 
-    // Swap the pieces in the array
+    // Swap if possible
     const a = pieces.indexOf(fromPiece);
     const b = pieces.indexOf(toPiece);
     [pieces[a], pieces[b]] = [pieces[b], pieces[a]];
@@ -96,22 +96,21 @@ function startTimer() {
 
 
 function checkDone() {
-    let allDone = true;
+    let allDone = true; // assume true and negate through logic
 
-    pieces.forEach((piece, i) => {
-        // Check if each piece is in its correct spot
-        if (parseInt(piece.dataset.index) === i) {
-            if (piece.draggable) {
-                piece.classList.add("done");  // Visually indicate it's locked
-                piece.draggable = false;      // Prevent future movement
+    pieces.forEach((piece, i) => { // go through pieces array
+        if (parseInt(piece.dataset.index) === i) { // check if the index is correct, meaning it's in the right spot
+            if (piece.draggable) { // if it's not set to undraggable yet, do that
+                piece.classList.add("done");  
+                piece.draggable = false; // No longer draggable
             }
         } else {
-            allDone = false;
+            allDone = false; // Not done
         }
     });
 
     if (allDone) {
-        clearInterval(timer);
+        clearInterval(timer); // reset timer
         score.textContent = `Artwork reassembled in ${seconds} seconds!`;
     }
 }
