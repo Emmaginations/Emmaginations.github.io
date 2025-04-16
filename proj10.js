@@ -20,10 +20,11 @@ function createPieces() {
         p.setAttribute("data-index", i); // set the "correct position" index, that will be accessed through dataTransfer later
         p.draggable = true; // make draggable
 
-        const row = Math.floor(i/gridCount);
-        const col = i % gridCount;
+        const row = Math.floor(i/gridCount); // Calculate which part of the picture it should diplay
+        const col = i % gridCount; // Same as  above for horzontal
         p.style.backgroundPosition = `-${col * 100}px -${row * 100}px`;
         
+        // Event listeners
         p.addEventListener("dragstart", dragStart);
         p.addEventListener("dragover", dragOver);
         p.addEventListener("drop", drop);
@@ -34,10 +35,10 @@ function createPieces() {
     }
 }
 
-function shuffle() {
+function shuffle() {// Shuffling algorithm
     for (let i = pieces.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [pieces[i], pieces[j]] = [pieces[j], pieces[i]];
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [pieces[i], pieces[j]] = [pieces[j], pieces[i]]; // shortcut for swapping array items
     }
 }
 
@@ -62,18 +63,18 @@ function dragEnter(e) {
 }
 
 function dragLeave(e) {
-    e.target.classList.remove("highlight");
+    e.target.classList.remove("highlight"); // Remove the highlight
 }
 
 function drop(e) {
     e.preventDefault(); //drop can do other things with images by default
     e.target.classList.remove("highlight"); //No longer option
 
-    const fromIndex = e.dataTransfer.getData("text"); //The correct index
-    const toIndex = e.target.dataset.index;
+    const fromIndex = e.dataTransfer.getData("text"); //The dropped index
+    const toIndex = e.target.dataset.index; // target index
 
-    const fromPiece = pieces.find(p => p.dataset.index === fromIndex);
-    const toPiece = pieces.find(p => p.dataset.index === toIndex);
+    const fromPiece = pieces.find(p => p.dataset.index === fromIndex); // The dragged piece
+    const toPiece = pieces.find(p => p.dataset.index === toIndex); // The target piece
 
     // No moving if either piece is done
     if (!fromPiece.draggable || !toPiece.draggable) return;
@@ -81,19 +82,19 @@ function drop(e) {
     // Swap if possible
     const a = pieces.indexOf(fromPiece);
     const b = pieces.indexOf(toPiece);
-    [pieces[a], pieces[b]] = [pieces[b], pieces[a]];
+    [pieces[a], pieces[b]] = [pieces[b], pieces[a]]; // shortcutt for swaping arrays
 
     render();
     checkDone();
 }
 
 function startTimer() {
-    clearInterval(timer);
-    seconds = 0;
+    clearInterval(timer); // Clear the previous timer
+    seconds = 0; // Set the counter variable to 0
     timerLine.textContent = `Time: 0s`;
-    timer = setInterval(() => {
-        seconds++;
-        timerLine.textContent = `Time: ${seconds}s`;
+    timer = setInterval(() => { // Set new timer
+        seconds++; // Increment seconds
+        timerLine.textContent = `Time: ${seconds}s`; // Display time
     }, 1000);
 }
 
