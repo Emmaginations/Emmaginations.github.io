@@ -10,7 +10,7 @@ submitXML.addEventListener("click", weatherXML);
 
 function weatherFetch() {
     clear();
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.41&lon=79.14&dt=${unixTime}&appid=${key}&units=standard`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=37.41&lon=79.14&appid=${key}&units=standard`)
         .then(response => response.json())
         .then(data => display(data))
         .catch((error) => console.log(error));
@@ -20,7 +20,7 @@ function weatherXML() {
     clear();
     const xhr = new XMLHttpRequest();
     
-    xhr.open('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=37.41&lon=79.14&dt=${unixTime}&appid=${key}&units=standard`, true);
+    xhr.open('GET', `https://api.openweathermap.org/data/2.5/onecall?lat=37.41&lon=79.14&appid=${key}&units=standard`, true);
     xhr.send(null);
 
     xhr.onreadystatechange = function() {
