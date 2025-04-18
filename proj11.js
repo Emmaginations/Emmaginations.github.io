@@ -10,7 +10,7 @@ submitXML.addEventListener("click", weatherXML);
 
 function weatherFetch() {
     clear();
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=37.41&lon=79.14&appid=${key}&units=metric`)
+    fetch(`http://api.openweathermap.org/data/3.0/onecall?lat=37.41&lon=79.14&appid=${key}`)
         .then(response => response.json())
         .then(data => display(data))
         .catch((error) => console.log(error));
