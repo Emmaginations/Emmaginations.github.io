@@ -10,7 +10,7 @@ submitXML.addEventListener("click", weatherXML);
 
 function weatherFetch() {
     clear();
-    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=37.41&lon=79.14&appid=${key}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=37.41&lon=79.14&appid=${key}`)
         .then(response => response.json())
         .then(data => display(data))
         .catch((error) => console.log(error));
@@ -39,7 +39,7 @@ function weatherXML() {
 function display(data) {
 // Work through JSON file
 const results = document.getElementById("results");
-const time = new Date(data.current.sunrise * 1000);
+const time = new Date(data.sys.sunrise * 1000);
 results.innerHTML = `
     <h2>Next Sunrise Time: </h2>
     <p> ${time.toString()}</p>
