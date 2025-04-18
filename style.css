@@ -129,3 +129,17 @@ img:hover {
 .piece.done {
     opacity:0.5;
 }
+
+#results {
+    background-color: black;
+    border: 1px white;
+}
+
+#results h2 {
+    color: lightblue;
+    font-variant: normal;
+}
+
+#results p {
+    color: white;
+}
