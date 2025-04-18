@@ -17,7 +17,10 @@ function weatherFetch() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=37.41&lon=79.14&appid=${key}`)
         .then(response => response.json()) // Parse json
         .then(data => display(data))
-        .catch((error) => console.log(error));
+        .catch((error) => {
+            console.log(error);
+            document.getElementById('results').innerHTML = "Error Fetching Data"
+        });
 }
 
 // Retrieve through XMLHttpRequest
@@ -35,7 +38,7 @@ function weatherXML() {
                 const data = JSON.parse(xhr.responseText); // Parse json
                 display(data);
             } else {
-                document.getElementById('results').innerHTML = "Error"
+                document.getElementById('results').innerHTML = "Error Fetching Data"
             }
         } 
     }
