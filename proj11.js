@@ -39,10 +39,14 @@ function weatherXML() {
 function display(data) {
 // Work through JSON file
 const results = document.getElementById("results");
-const time = new Date(data.sys.sunrise * 1000);
+const sunrise = new Date(data.sys.sunrise * 1000);
+const sunset = new Date(data.sys.sunset *1000);
+
 results.innerHTML = `
-    <h2>Next Sunrise Time: </h2>
-    <p> ${time.toString()}</p>
+    <h2>Sunrise Time: </h2>
+    <p>${sunrise.toString()}</p>
+    <h2>Sunset Time:</h2>
+    <p>${sunset.toString()}</p>
 `;
 }
 
