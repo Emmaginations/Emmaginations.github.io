@@ -132,7 +132,7 @@ img:hover {
 
 #results {
     background-color: black;
-    border: 1px solid white;
+    border: 2px solid red;
 }
 
 #results h2 {
