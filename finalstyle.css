@@ -20,6 +20,7 @@ body {
     max-width: 800px;
     margin-bottom: 2rem;
     height: 600px;
+    opacity: 30%;
   }
 
   .card-left {
