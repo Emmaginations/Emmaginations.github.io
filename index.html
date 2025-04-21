@@ -1,138 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Emmaginations</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-</head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inline React Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body>
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-	<div class="topnav">
-		<a class="active" href="index.html">Home</a>
-		<a href="Pages/code.html">Code</a>
-		<a href="Pages/designs.html">Designs</a>
-		<a href="Pages/dance.html">Dance</a>
-	</div>
-	<!-- This web page contains profile information about Emma Zajonc -->
-	<div id="name">
-		<h1>Emma Zajonc</h1>
-		<h2 onclick="update()" id="title">Software Engineer</h2>
+    <link rel="stylesheet" href="finalstyle.css">
 
-		
-	</div>
+  </head>
 
-	<h2>Preferences</h2>
-	<form method="get" action="index.html">
-		<label>Background Color: </label>
-		<select id="bgcolor" name="bgcolor">
-			<option value="lightpink">Light Pink</option>
-			<option value="lightblue">Light Blue</option>
-			<option value="black">Black</option>
-		</select>
-
-		<label>Text Color: </label>
-		<select id="txtcolor" name="txtcolor">
-			<option value="darkblue">Dark Blue</option>
-			<option value="black">Black</option>
-			<option value="white">White</option>
-		</select>
-
-		<label>Text Size: </label>
-		<select id="txtsize" name="txtsize">
-			<option value="16">Small</option>
-			<option value="20">Medium</option>
-			<option value="24">Large</option>
-		</select>
-
-		<button>Save Preferences</button>
-	</form>
-
-
-	<h2>Registration Form</h2>
-	<!-- The registration form-->
-
-	<form id="registrationForm">
-        <label>Full Name: <input type="text" name="fullName" required></label>
-		<p>Enter your full name.</p>
-		<span data-error="fullName" class="error"></span>
-		<br/>
-
-        <label>Username: <input type="text" name="username" required></label>
-		<p>Your username must be between 6 and 15 characters in length and cannot begin with a number.</p>
-		<span data-error="username" class="error"></span>
-		<br/>
-
-        <label>Email: <input type="email" name="email" required></label>
-		<p>Your email must be in a valid format.</p>
-		<span data-error="email" class="error"></span>
-		<br/>
-
-        <label>Password: <input type="password" name="password" required></label>
-		<p>Your password should be between 8 and 20 characters, containing at least one uppercase letter, lowercase letter, digit, and special character.</p>
-		<span data-error="password" class="error"></span>
-		<br/>
-
-        <label>Confirm Password: <input type="password" name="confirmPassword" required></label>
-		<p>Ensure this field matches your password exactly.</p>
-		<span data-error="confirm" class="error"></span>
-		<br/>
-
-        <label>Phone Number: <input type="tel" name="phoneNumber" required></label>
-		<p>Your phone number must be in a valid format.</p>
-		<span data-error="phoneNumber" class="error"></span>
-		<br/>
-
-        <label>Date of Birth: <input type="date" name="dob" required></label>
-		<p>You must be over the age of 18.</p>
-		<span data-error="dob" class="error"></span>
-		<br/>
-
-        <label><input type="checkbox" name="agreeToTerms"> I agree to the terms and conditions</label>
-		<p>You must agree to the terms and conditions.</p>
-		<span data-error="agreeToTerms" class="error"></span>
-		<br/>
-
-        <button type="submit">Register</button>
-    </form>
-	
-
-	<div id="result"></div>
-
-	
-	
-
-	
-
-	<script>
-		let counter = 0;
-
-		function update() {
-			let title = document.getElementById("title");
-			
-			// Each time the subtitle is clicked, the content and the counter update
-			counter++;
-			if (counter > 3) {
-				counter = 0;
-				title.textContent = "Software Engineer";
-			} else if (counter == 1) {
-				title.textContent = "Graphic Designer";
-			} else if (counter == 2) {
-				title.textContent = "Swing Dancer";
-			} else {
-				title.textContent = "Figure Skater";
-				alert("You should hire me!");
-			}
-
-			//Toggle between having Sa class making the text black and not having the class
-			title.classList.toggle("bl");
-		}
-	</script>
-
-	<img src="img1.jpg" alt="Me at a dance competition" />
-
-
-	<script src="proj6.js"></script>
-	<script src="proj9.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" src="./final.js"></script>
+  </body>
 </html>
