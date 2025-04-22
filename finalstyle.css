@@ -1,81 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #053a42;
+}
+
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 2rem;
-    margin: 0;
-    background-color: #f7f7f7;
-  }
+    box-sizing: border-box;
+    padding: 2rem;
+}
 
-  .card {
+h2 {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, .8);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-top: 75px;
+  margin-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  height: auto;
+  fill-opacity: 50%;
+}
+
+.card h1 {
+    color: black;
+}
+
+.card p {
+    color: black;
+    text-align: left;
+}
+
+.resume_card {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: rgba(255,255,255,.75);
-    padding: 2rem;
+    background-color: rgba(255, 255, 255, .8);
+    padding: 15px;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
     max-width: 800px;
-    margin-top: 75px;
+    margin-top: 2rem;
     margin-bottom: 2rem;
-    height: 400px;
+    height: auto;
     fill-opacity: 50%;
-  }
-
-  .card-left {
-    flex: 1;
-    margin-right: 2rem;
-  }
-
-  .card-right {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-color: #ddd;
-    overflow: hidden;
-  }
-
-  .card-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .button-group {
-    display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
   }
 
-  .button-group button {
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #4f46e5;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
+.card-left {
+  flex: 1;
+  margin-right: 2rem;
+}
 
-  .resume-section {
-    text-align: center;
-  }
+.card-right {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #ddd;
+  overflow: hidden;
+}
 
-  .resume-section button {
-    margin-top: 1rem;
-    padding: 0.5rem 1.2rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #10b981;
-    color: white;
-    cursor: pointer;
-  }
+.card-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .background-paint {
+.resume-section {
+  text-align: center;
+}
+  
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #0a5f55;
+  color: white;
+  cursor: pointer;
+}
+  
+.resume-section p {
+  color: black;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.button-group button {
+  padding: 0.5rem 1.5rem;
+  border: 3px solid transparent;
+  border-radius: 0.5rem;
+  background-color: #750042;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 200px;
+  font-size: 1.25em;
+}
+
+.background-paint {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 90%;
+  animation: slow-rotate 100s linear infinite;
+}
+
+.background-paint2 {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -83,16 +151,134 @@ body {
     height: 1000px;
     transform: translate(-50%, -50%);
     z-index: -1;
-    opacity: 90%;
-    pointer-events: none;
-    animation: slow-rotate 60s linear infinite;
+    opacity: 20%;
   }
   
-  @keyframes slow-rotate {
-    from {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
+@keyframes slow-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+button:hover {
+    border: 3px solid white;
+}
+
+.navbar {
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #7e0c4c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .navbar-links a:hover {
+    color: rgb(231, 130, 23)
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-top: 2rem;
+  }
+  
+  .project-left img {
+    width: 300px;
+    border-radius: 1rem;
+  }
+  
+  .project-right h2 {
+    margin-bottom: 1rem;
+    color: #7e0c4c;
+  }
+  
+  .project-right ul {
+    text-align: left;
+    margin: 2rem;
+    padding-left: 1.2rem;
+  }
+
+  .carousel-image {
+    height: 300px;
+    margin: 40px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.9);
+  }
+
+  .designdiv {
+    color: white;
+  }
+
+  .toggle-header {
+    background-color: #0a5f55;
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    width: 400px;
+  }
+  
+  .toggle-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 60px;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255, .8)
+  }
+
+  .form-element {
+    color: black;
+    margin: 30px;
+  }
+
+  label {
+    display: block;
+  }
+  
+  .message input {
+    text-align: left;
+    width: 400px;
+    height: 100px;
+  }
+
+  form span {
+    color:#c1006d;
+  }
+
+

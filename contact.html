@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Emma Zajonc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="finalstyle.css">
+
+  </head>
+
+  <body>
+    <div id="nav"></div>
+
+    <div class="content">
+        <h1 class="page-title">Contact Me</h1>
+        <p>I'd love to hear from you!</p>
+
+        <form id="contactForm">
+
+            <div class="form-element">
+                <label>*Name: <input type="text" name="name" required></label>
+                <span data-error="name" class="error"></span>
+            </div>
+            <div class="form-element">
+                <label>*Email: <input type="email" name="email" required></label>
+                <span data-error="email" class="error"></span>    
+            </div>
+            
+            <div class="form-element">
+                <label>Phone Number: <input type="tel" name="phoneNumber"></label>
+                <span data-error="phoneNumber" class="error"></span>                   
+            </div>
+
+            <div class="form-element">
+                <label>*Area of Interest: <input type="text" name="interest" id="interestInput" required></label>
+                <span data-error="interest" class="error"></span>
+            </div>
+        
+            <div class="form-element message">
+                <label>*Message:</label>
+                <input type="text" name="message" required>
+                <span data-error="message" class="error"></span>    
+            </div>
+
+    
+            <button type="submit">Send</button>
+        </form>
+    
+    </div>
+
+    
+
+    <div class="background-paint2">
+        <img src="paint.png"/>
+    </div>
+
+    <script type="text/babel" src="./final2.js"></script>
+    <script src="./final5.js"></script>
+    <script src="./jquery.js"></script>
+  </body>
+</html>

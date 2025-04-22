@@ -1,10 +1,21 @@
-function App() {
+function Home() {
+    function software() {
+        window.location.href = "./software.html"
+    }
+
+    function design() {
+        window.location.href = "./design.html"
+    }
+
+    function dance() {
+        window.location.href = "./dance.html"
+    }
+
     return (
       <div>
-        {/* Centered Block */}
         <div className="card">
           <div className="card-left">
-            <h2>Hello, I'm Emma Zajonc!</h2>
+            <h1>Hi, I'm Emma Zajonc!</h1>
             <p>
               I'm a software engineering student passionate about integrating creativity with my technical endeavors.
             </p>
@@ -13,24 +24,30 @@ function App() {
             <img src="profile.jpg" alt="Profile" />
           </div>
         </div>
-  
-        {/* Buttons */}
+
         <div className="button-group">
-          <button>Software</button>
-          <button>Design</button>
-          <button>Dance</button>
+          <button onClick={software}>Software</button>
+          <button onClick={design}>Design</button>
+          <button onClick={dance}>Dance</button>
         </div>
   
-        {/* Resume Download Section */}
-        <div className="resume-section">
-          <p>Want to know more? Download my resume below:</p>
-          <a href="./resume.docx" download>
-            <button>Download Resume</button>
-          </a>
-        </div>
+        <div className="resume_card">
+            <div className="resume-section">
+              <p>Interested? Download my resume below:</p>
+              <a href="./Resume_Emma_Zajonc.pdf" download>
+                <button>Download Resume</button>
+              </a>
+              <p>Or contact me today!</p>
+              <a href="./contact.html">
+                <button>Contact Me</button>
+              </a>
+            </div>
+        </div>  
       </div>
     );
   }
-  
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  root.render(<App />);
+
+
+const home = ReactDOM.createRoot(document.getElementById("home"));
+home.render(<Home />);
+
